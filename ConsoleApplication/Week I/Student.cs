@@ -1,45 +1,54 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.IO;
 using System.Threading.Tasks;
 
-namespace Student
+namespace StudentClass
 {
-
-
-    class Program
+    class Student             //создаем класс Студент с параметрами имя, фамилия и гпа
     {
-        public class Student //создаем класс Студента, который имеет параметры имя, фамилия, возраст и гпа
-        {
-            public string name;
-            public string surname;
-            public int age;
-            public double Gpa;
+        public string name;  
+        public string surname;
+        public double gpa;  
 
-            public Student(string name, string surname, int age, double Gpa) //конструктор студент
-            {
-                this.name = name;
-                this.surname = surname;
-                this.age = age;
-                this.Gpa = Gpa;
-            }
-            public override string ToString()
-            {
-                return this.name + " " + this.surname + " " + this.age + " " + this.Gpa;
-            }
-        }
-        public static void Main(string[] args)
+        public Student()     //конструктор Студент без параметров
         {
-            Student Student1 = new Student("Tomiris", "Bolatbekova", 17, 3.0);
-            Student Student2 = new Student("Kamilla", "Rinatova", 18, 3.7);
-            Console.WriteLine(Student1.ToString());
-            Console.WriteLine(Student2.ToString());
-            Console.ReadLine();
+            name = "Tomiris";    //с начальными значениями
+            surname = "Bolatbekova";
+            gpa = 4.0;
+        } 
+        public Student(string name, string surname, double gpa)  //конструктор Студент с тремя параметрами
+        {
+            this.name = name;  //
+            this.surname = surname;
+            this.gpa = gpa;
+        }
+        public override string ToString()    //переписываем значения в стринг
+        {
+            return name + " " + surname +  " " + gpa;
 
         }
     }
+    //override - переписывание метода одинаковое по названию
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Student student1 = new Student();  //создаем нового студента, выделяем память
 
+            Console.WriteLine("Please, enter data in following format: Name Surname GPA"); //инструкции пользователю
+            string inputLine = Console.ReadLine();  //вводим данные 
+            string[] vals = inputLine.Split(' '); //если в линии пробелы, то создаем массив из элементов строки
 
+            student1.name = vals[0]; //первый элемент массива - имя студента
+            student1.surname = vals[1]; //второй элемент - фамилия
+
+            student1.gpa = Convert.ToDouble(vals[2]); //меняем гпа из string в double
+             
+            Console.WriteLine(student1.ToString()); //выводим данные студента
+            Console.ReadKey();
+        }
+    }
 }
-
