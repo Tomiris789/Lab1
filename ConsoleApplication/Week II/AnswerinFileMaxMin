@@ -1,0 +1,39 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.IO;
+
+namespace MaxMin
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int minNumber = int.MaxValue;   //переменная minValue равна значению самого большого инта
+            int maxNumber = int.MinValue;   //и переменная maxValue равна минимальному интегеру
+            FileStream fs = new FileStream(@"C:\Users\User\Desktop\temp.files\input.txt", FileMode.OpenOrCreate, FileAccess.ReadWrite);
+            StreamReader sr = new StreamReader(fs);
+
+            while (!sr.EndOfStream)  //пока StreamReader не дочитал и не дошел до коца
+            { 
+                string text = sr.ReadLine(); //данные, прочитанные из файла записывам в текст
+                int k = int.Parse(text);   //данные, записанные в текст переводит в инт 
+                minNumber = Math.Min(minNumber, k);  //сравниваем minNumber и прочитанное число
+                maxNumber = Math.Max(maxNumber, k);  
+
+            }
+            sr.Close();  //закрываем Reader
+            fs.Close(); //закрываем файл
+
+
+                 //записываем максимальное и минимальное значение в файл
+            File.WriteAllText(@"C:\Users\User\Desktop\temp.files\input.txt", minNumber.ToString());
+            File.WriteAllText(@"C:\Users\User\Desktop\temp.files\input.txt", maxNumber.ToString());
+
+            
+            Console.ReadLine();
+        }
+    }
+}
