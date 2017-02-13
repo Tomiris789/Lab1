@@ -9,7 +9,7 @@ namespace FAR
 {
     class Program
     {
-        class CustomFolderInfo         //Custom folders are special folders that represent the on the target computer 
+        class CustomFolderInfo         //Custom folders are special folders that represent the folders on the target computer 
         {
             CustomFolderInfo prev; //предыдущая папка, где был курсор        
             int index; // индекс курсора 
@@ -21,7 +21,7 @@ namespace FAR
                 this.index = index;
                 this.dirs = directoryInfo;
             }
-            public void PrintFolderInfo()  //метод для отображения списка подкаталогов и смены цвета папки с текущий индексом
+            public void PrintFolderInfo()  //метод для отображения списка подкаталогов и смены цвета папки с текущим индексом
             {
                 Console.Clear();    //удаляем список папок
 
