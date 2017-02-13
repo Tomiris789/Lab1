@@ -15,7 +15,7 @@ namespace FAR
             int index; // индекс курсора 
             DirectoryInfo[] dirs;  //DirectoryInfo - предоставляет методы экземпляра класса для создания, перемещения и перечисления в каталогах и подкаталогах
 
-            public CustomFolderInfo(CustomFolderInfo prev, int index, DirectoryInfo[] directoryInfo) //конструктор с параметрами предыдущая папка, индекс текущей папки и информация а каталогах
+            public CustomFolderInfo(CustomFolderInfo prev, int index, DirectoryInfo[] directoryInfo) //конструктор с параметрами предыдущая папка, индекс текущей папки и информация о каталогах
             {
                 this.prev = prev;             
                 this.index = index;
