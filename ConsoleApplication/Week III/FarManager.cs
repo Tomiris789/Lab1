@@ -97,7 +97,7 @@ namespace FAR
             ShowFolderInfo(test);
 
            DirectoryInfo dr = new DirectoryInfo("C:\\Python27"); //отображает файлы в папке питон
-           FileSystemInfo[] list = dr.GetFileSystemInfos(); //GetFileSystemInfos - отображает не только папки, но и файлы. Файлы записаны в листе
+           FileSystemInfo[] list = dr.GetFileSystemInfos(); //GetFileSystemInfos - отображает не только папки, но и файлы. 
 
                      for (int i = 0; i < list.Length; i++)
                          Console.WriteLine(list[i]);
